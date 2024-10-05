@@ -1,8 +1,3 @@
-"""
-Mesomachukwu Nwankwo
-@03054767
-"""
-
 import re
 
 class Boggle:
@@ -46,8 +41,6 @@ class Boggle:
         # Recursively finds valid words in the grid
         if i < 0 or i >= len(self.grid) or j < 0 or j >= len(self.grid[0]):  # Checks if the current point is out of bounds
             return  # Exits if out of bounds
-<<<<<<< HEAD
-=======
 
         # Check if the current tile is "qu" or "st" and handle accordingly
         current_tile = self.grid[i][j]
@@ -58,30 +51,21 @@ class Boggle:
         else:
             current_sub_word += current_tile
 
->>>>>>> first commit
         if current_sub_word not in self.all_cases_dictionary:  # Exits if the current word is not a valid prefix
             return
         if self.all_cases_dictionary[current_sub_word] and len(current_sub_word) >= 3:  # Checks if the word is valid and at least 3 letters long
             if current_sub_word not in self.solutions:  # If the word is not already in solutions
                 self.solutions.append(current_sub_word)  # Adds the word to solutions
 
-<<<<<<< HEAD
-        directions = [(1, 1), (-1, -1), (1, -1), (-1, 1), (0, 1), (0, -1), (1, 0), (-1, 0)]  # Defines all 8 directions (diagonal, horizontal, vertical)
-=======
         # Defines all 8 directions (diagonal, horizontal, vertical)
         directions = [(1, 1), (-1, -1), (1, -1), (-1, 1), (0, 1), (0, -1), (1, 0), (-1, 0)]
->>>>>>> first commit
         for direction in directions:  # Loops through each direction
             new_i, new_j = i + direction[0], j + direction[1]  # Calculates the new point in the grid
             new_point = f"{new_i},{new_j}"  # Formats the new point as a string for tracking
             if new_point not in used_points and 0 <= new_i < len(self.grid) and 0 <= new_j < len(self.grid[0]):  # Checks if the new point is valid and not already used
                 current_used_points = used_points[:]  # Creates a copy of the used points list
                 current_used_points.append(new_point)  # Adds the new point to the used points list
-<<<<<<< HEAD
-                self.get_results(current_used_points, new_i, new_j, current_sub_word + self.grid[new_i][new_j])  # Recursively continues the search
-=======
                 self.get_results(current_used_points, new_i, new_j, current_sub_word)  # Recursively continues the search
->>>>>>> first commit
 
     def find_all_solutions(self):
         # Finds all possible words in the grid
@@ -95,11 +79,7 @@ class Boggle:
 
         for i in range(len(self.grid)):  # Loops through each row in the grid
             for j in range(len(self.grid[0])):  # Loops through each column in the row
-<<<<<<< HEAD
-                self.get_results([f"{i},{j}"], i, j, self.grid[i][j])  # Starts the search from each point in the grid
-=======
                 self.get_results([f"{i},{j}"], i, j, "")  # Starts the search from each point in the grid
->>>>>>> first commit
 
         return self.solutions  # Returns the list of valid words found
 
